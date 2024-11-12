@@ -1,0 +1,28 @@
+// Problem Statement - Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+// link - https://leetcode.com/problems/sqrtx/
+
+
+
+class Solution {
+public:
+    long long int mySqrt(int x) {
+        long long int s=0,e=x, ans=-1;
+        long long int mid= s + (e-s)/2;
+        while(s<=e){
+                long long int square= mid*mid;
+                if(square==x){
+                        return  mid;
+                }
+                else if (square<x){
+                        s = mid+1;
+                        ans =mid; 
+                }
+                else {
+                        e = mid-1;
+                }
+                mid = s + (e-s)/2;
+        }  
+        return ans;
+    }
+};
